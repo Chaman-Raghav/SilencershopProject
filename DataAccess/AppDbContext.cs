@@ -18,6 +18,7 @@ namespace SilencershopTest.DataAccess
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<AuditStatus> AuditStatuses { get; set; }
         public DbSet<Audit> Audits { get; set; }
+        public DbSet<Auditor> Auditors { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<UserRole>().HasData(

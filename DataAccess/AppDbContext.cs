@@ -16,6 +16,8 @@ namespace SilencershopTest.DataAccess
         public DbSet<UserLoginHistory> UserLoginHistories { get; set; }
         public DbSet<NotificationEventType> NotificationEventTypes { get; set; }
         public DbSet<Notification> Notifications { get; set; }
+        public DbSet<AuditStatus> AuditStatuses { get; set; }
+        public DbSet<Audit> Audits { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<UserRole>().HasData(
@@ -65,6 +67,22 @@ namespace SilencershopTest.DataAccess
                 {
                     Id = 3,
                     Event = "Flagged"
+                });
+            modelBuilder.Entity<AuditStatus>().HasData(
+                new AuditStatus
+                {
+                    Id = 1,
+                    Status = "Not Started"
+                },
+                new AuditStatus
+                {
+                    Id = 2,
+                    Status = "In Progress"
+                },
+                new AuditStatus
+                {
+                    Id = 3,
+                    Status = "Completed"
                 });
         }
     }

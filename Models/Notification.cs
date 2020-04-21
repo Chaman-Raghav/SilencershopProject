@@ -17,15 +17,15 @@ namespace SilencershopTest.Models
 
         #region ForeignKey
         [ForeignKey("Id")]
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
         public User User { get; set; }
 
         [ForeignKey("Id")]
-        public int DocumentId { get; set; }
+        public int? DocumentId { get; set; }
         public Document Document { get; set; }
 
         [ForeignKey("Id")]
-        public int EventId { get; set; }
+        public int? NotificationEventTypeId { get; set; }
         public NotificationEventType NotificationEventType { get; set; }
         #endregion
     }

@@ -28,7 +28,7 @@ namespace SilencershopTest
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<UserContext>(options => {
+            services.AddDbContext<AppDbContext>(options => {
                 options.UseSqlServer(Configuration.GetConnectionString("silensershopdb"));
             });
         }

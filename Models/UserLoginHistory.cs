@@ -19,7 +19,7 @@ namespace SilencershopTest.Models
         [ForeignKey("Id")]
         public int UserId { get; set; }
         public User User { get; set; }
-        #endregion
+        #endregion 
 
     }
 }

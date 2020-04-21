@@ -18,7 +18,7 @@ namespace SilencershopTest.Controllers
     public class DocumentsController : ControllerBase
     {
         #region Local Variables
-        private readonly UserContext _context;
+        private readonly AppDbContext _context;
         private readonly ILogger<DocumentsController> _logger;
         #endregion Local Variable
 
@@ -28,7 +28,7 @@ namespace SilencershopTest.Controllers
         /// </summary>
         /// <param name="context"></param>
         /// <param name="logger"></param>
-        public DocumentsController(UserContext context, ILogger<DocumentsController> logger)
+        public DocumentsController(AppDbContext context, ILogger<DocumentsController> logger)
         {
             _context = context;
             _logger = logger;

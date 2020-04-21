@@ -9,7 +9,8 @@ namespace SilencershopTest.Models
     public class UserRole
     {
         [Key]
-        public string Id { get; set; }
+
+        public int Id { get; set; }
         public string Role { get; set; }
     }
 }

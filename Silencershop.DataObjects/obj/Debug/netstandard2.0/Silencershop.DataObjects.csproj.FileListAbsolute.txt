@@ -1,0 +1,16 @@
+C:\Users\Inno61\Documents\codeVice\NewSilenshopBackend\Silencershop.DataObjects\bin\Debug\netstandard2.0\Silencershop.DataObjects.deps.json
+C:\Users\Inno61\Documents\codeVice\NewSilenshopBackend\Silencershop.DataObjects\bin\Debug\netstandard2.0\Silencershop.DataObjects.dll
+C:\Users\Inno61\Documents\codeVice\NewSilenshopBackend\Silencershop.DataObjects\obj\Debug\netstandard2.0\Silencershop.DataObjects.csprojAssemblyReference.cache
+C:\Users\Inno61\Documents\codeVice\NewSilenshopBackend\Silencershop.DataObjects\obj\Debug\netstandard2.0\Silencershop.DataObjects.AssemblyInfoInputs.cache
+C:\Users\Inno61\Documents\codeVice\NewSilenshopBackend\Silencershop.DataObjects\obj\Debug\netstandard2.0\Silencershop.DataObjects.AssemblyInfo.cs
+C:\Users\Inno61\Documents\codeVice\NewSilenshopBackend\Silencershop.DataObjects\bin\Debug\netstandard2.0\Silencershop.DataObjects.pdb
+C:\Users\Inno61\Documents\codeVice\NewSilenshopBackend\Silencershop.DataObjects\obj\Debug\netstandard2.0\Silencershop.DataObjects.dll
+C:\Users\Inno61\Documents\codeVice\NewSilenshopBackend\Silencershop.DataObjects\obj\Debug\netstandard2.0\Silencershop.DataObjects.pdb
+C:\Users\Inno61\Documents\codeVice\SilencershopBackend\Silencershop.DataObjects\bin\Debug\netstandard2.0\Silencershop.DataObjects.deps.json
+C:\Users\Inno61\Documents\codeVice\SilencershopBackend\Silencershop.DataObjects\bin\Debug\netstandard2.0\Silencershop.DataObjects.dll
+C:\Users\Inno61\Documents\codeVice\SilencershopBackend\Silencershop.DataObjects\bin\Debug\netstandard2.0\Silencershop.DataObjects.pdb
+C:\Users\Inno61\Documents\codeVice\SilencershopBackend\Silencershop.DataObjects\obj\Debug\netstandard2.0\Silencershop.DataObjects.csprojAssemblyReference.cache
+C:\Users\Inno61\Documents\codeVice\SilencershopBackend\Silencershop.DataObjects\obj\Debug\netstandard2.0\Silencershop.DataObjects.AssemblyInfoInputs.cache
+C:\Users\Inno61\Documents\codeVice\SilencershopBackend\Silencershop.DataObjects\obj\Debug\netstandard2.0\Silencershop.DataObjects.AssemblyInfo.cs
+C:\Users\Inno61\Documents\codeVice\SilencershopBackend\Silencershop.DataObjects\obj\Debug\netstandard2.0\Silencershop.DataObjects.dll
+C:\Users\Inno61\Documents\codeVice\SilencershopBackend\Silencershop.DataObjects\obj\Debug\netstandard2.0\Silencershop.DataObjects.pdb

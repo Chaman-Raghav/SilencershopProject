@@ -64,9 +64,9 @@ namespace SilencershopTest.Migrations
                     Country = table.Column<string>(nullable: true),
                     FirstThreeDigitOfFFL = table.Column<string>(nullable: true),
                     LastFiveDigitOfFFL = table.Column<string>(nullable: true),
-                    DeleteDocumentsOnExpiration = table.Column<bool>(nullable: true),
+                    DeleteDocumentsOnExpiration = table.Column<bool>(nullable: true, defaultValue: false),
                     Image = table.Column<byte[]>(nullable: true),
-                    CreationDate = table.Column<DateTime>(nullable: true),
+                    CreationDate = table.Column<DateTime>(nullable: true, defaultValue: DateTime.Now),
                     UserStatusId = table.Column<int>(nullable: true),
                     UserRoleId = table.Column<int>(nullable: true)
                 },

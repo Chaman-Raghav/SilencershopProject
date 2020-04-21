@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using SilencershopTest.DataAccess;
+using SilencershopTest.Interfaces;
 using SilencershopTest.Models;
 
 namespace SilencershopTest.Controllers
@@ -14,10 +16,46 @@ namespace SilencershopTest.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
+        #region Local Variable
         private readonly AppDbContext _context;
-        public UsersController(AppDbContext context)
+        private readonly ILogger<UsersController> _logger;
+        #endregion Local Variable
+
+        #region Contructor Dependencies Injection
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="logger"></param>
+        public UsersController(AppDbContext context, ILogger<UsersController> logger)
         {
             _context = context;
+            _logger = logger;
+        }
+        #endregion Contructor Dependencies Injection
+
+        #region Endpoints
+        [HttpGet("GetUserById/{userId:int}")]
+        public User GetUser(int userId)
+        {
+            if(userId == 0)
+            {
+                return new User { }; //StatusCode(404);
+            } else
+            {
+                try
+                {
+                    User user = _context.Users.FirstOrDefault(user => user.Id == userId);
+                    user.UserRole = _context.UserRoles.SingleOrDefault(role => role.Id == user.UserRoleId);
+                    user.UserStatus = _context.UserStatuses.SingleOrDefault(status => status.Id == user.UserStatusId);
+                    return user;
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogInformation("Unexpected Error occured while fetching users from DB", ex.InnerException.Message);
+                    throw;
+                }
+            }
         }
 
         [HttpGet]
@@ -81,5 +119,6 @@ namespace SilencershopTest.Controllers
             return Ok();
         }
 
+        #endregion Endpoints
     }
 }

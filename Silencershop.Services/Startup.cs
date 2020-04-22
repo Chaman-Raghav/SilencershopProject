@@ -13,6 +13,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using SilencershopTest.DataAccess;
 using Microsoft.OpenApi.Models;
+using Silencershop.ServiceLayer.Services;
+using Silencershop.ServiceLayer.Services.IServices;
 
 namespace SilencershopTest
 {
@@ -36,6 +38,8 @@ namespace SilencershopTest
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
             });
+            services.AddScoped<IDocumentsService, DocumentsService>();
+            services.AddScoped<IUsersService, UsersService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

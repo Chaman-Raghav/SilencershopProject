@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
+using Silencershop.ServiceLayer.Services.IServices;
 using SilencershopTest.DataAccess;
-using SilencershopTest.Interfaces;
 using SilencershopTest.Models;
 
 namespace SilencershopTest.Controllers
@@ -17,8 +14,8 @@ namespace SilencershopTest.Controllers
     public class UsersController : ControllerBase
     {
         #region Local Variable
-        private readonly AppDbContext _context;
-        private readonly ILogger<UsersController> _logger;
+        private AppDbContext _context;
+        private IUsersService _usersServicer;
         #endregion Local Variable
 
         #region Contructor Dependencies Injection
@@ -27,10 +24,10 @@ namespace SilencershopTest.Controllers
         /// </summary>
         /// <param name="context"></param>
         /// <param name="logger"></param>
-        public UsersController(AppDbContext context, ILogger<UsersController> logger)
+        public UsersController(AppDbContext context, IUsersService usersService)
         {
             _context = context;
-            _logger = logger;
+            _usersServicer = usersService;
         }
         #endregion Contructor Dependencies Injection
 
@@ -38,48 +35,20 @@ namespace SilencershopTest.Controllers
         [HttpGet("GetUserById/{userId:int}")]
         public User GetUser(int userId)
         {
-            if(userId == 0)
-            {
-                return new User { }; //StatusCode(404);
-            } else
-            {
-                try
-                {
-                    User user = _context.Users.FirstOrDefault(user => user.Id == userId);
-                    user.UserRole = _context.UserRoles.SingleOrDefault(role => role.Id == user.UserRoleId);
-                    user.UserStatus = _context.UserStatuses.SingleOrDefault(status => status.Id == user.UserStatusId);
-                    return user;
-                }
-                catch (Exception ex)
-                {
-                    _logger.LogInformation("Unexpected Error occured while fetching users from DB", ex.InnerException.Message);
-                    throw;
-                }
-            }
+            return _usersServicer.GetUser(userId);
         }
 
-        [HttpGet]
-        public IEnumerable<User> GetUser()
+        [HttpGet("GetAllUsers")]
+        public IEnumerable<User> GetAllUsers()
         {
-            IEnumerable<User> users = _context.Users.ToList();
-            return users;
+            return _context.Users.ToList();
         }
 
         [HttpPost]
-        [Route("AddUser")]
-        public OkResult PostUser(User user)
+        [Route("SaveUser")]
+        public IActionResult SaveUser([FromForm]User user)
         {
-            try
-            {
-                _context.Users.Add(user);
-                _context.SaveChanges();
-            }
-            catch(DbUpdateException ex)
-            {
-                Console.WriteLine("There is some error in Adding the user:", ex);
-                throw;
-            }
-            return Ok();
+            return _usersServicer.SaveUser(user);
         }
 
         [HttpDelete]

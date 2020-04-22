@@ -1,32 +1,29 @@
-﻿using System;
+﻿using Silencershop.DataObjects.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
 namespace Silencershop.DataObjects.Models
 {
-    public class Notification
+    public class File
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public bool IsDisplayed { get; set; }
-        public DateTime CreationDate { get; set; }
+        public string FileName { get; set; }
+        public DateTime? UploadedDate { get; set; }
 
-        #region ForeignKey
+        #region ForeignKeys
         [ForeignKey("Id")]
-        public int? UserId { get; set; }
         public User User { get; set; }
 
         [ForeignKey("Id")]
-        public int? DocumentId { get; set; }
         public Document Document { get; set; }
 
         [ForeignKey("Id")]
-        public int? NotificationEventTypeId { get; set; }
-        public NotificationEventType NotificationEventType { get; set; }
-        #endregion
+        public FileType FileType { get; set; }
+        #endregion ForeignKeys
     }
 }

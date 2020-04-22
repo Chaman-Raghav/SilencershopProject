@@ -1,17 +1,22 @@
-﻿using System;
+﻿using Silencershop.DataObjects.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
 namespace Silencershop.DataObjects.Models
 {
-    public class NotificationEventType
+    public class SerialNumber
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public String Event { get; set; }
+        public string SerialNumberIs { get; set; }
+
+        #region ForeignKeys
+        [ForeignKey("Id")]
+        public Document Document { get; set; }
+        #endregion ForeignKeys
     }
 }

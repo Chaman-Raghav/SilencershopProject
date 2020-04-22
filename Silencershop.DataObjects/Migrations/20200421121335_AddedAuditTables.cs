@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace SilencershopTest.Migrations
+namespace Silencershop.DataObjects.Migrations
 {
     public partial class AddedAuditTables : Migration
     {

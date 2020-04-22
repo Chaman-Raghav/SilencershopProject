@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SilencershopTest.Interfaces;
-using SilencershopTest.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Silencershop.ServiceLayer.Interfaces;
+using Silencershop.DataObjects.Models;
 using System.Threading.Tasks;
 
 namespace Silencershop.ServiceLayer.Services.IServices

@@ -4,10 +4,10 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Silencershop.ServiceLayer.Services.IServices;
-using SilencershopTest.DataAccess;
-using SilencershopTest.Models;
+using Silencershop.DataObjects.DataAccess;
+using Silencershop.DataObjects.Models;
 
-namespace SilencershopTest.Controllers
+namespace Silencershop.ServiceLayer.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

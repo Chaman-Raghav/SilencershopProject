@@ -2,13 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Silencershop.ServiceLayer.Services.IServices;
-using SilencershopTest.DataAccess;
-using SilencershopTest.Models;
+using Silencershop.DataObjects.DataAccess;
+using Silencershop.DataObjects.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using System.Web.Http.Results;
 
 namespace Silencershop.ServiceLayer.Services
 {

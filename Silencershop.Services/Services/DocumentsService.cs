@@ -1,14 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using SilencershopTest.DataAccess;
-using SilencershopTest.Interfaces;
-using SilencershopTest.Models;
+using Silencershop.DataObjects.DataAccess;
+using Silencershop.DataObjects.Models;
 using System;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Silencershop.ServiceLayer.Services.IServices;
+using Silencershop.ServiceLayer.Interfaces;
 
 namespace Silencershop.ServiceLayer.Services
 {
@@ -69,7 +67,8 @@ namespace Silencershop.ServiceLayer.Services
 
         public async Task<IActionResult> PostDocument(IDocument document)
         {
-            var ImageInBytes = new byte[document.File.Length];
+            return new OkObjectResult("Document Successfully Saved");
+            /* var ImageInBytes = new byte[document.File.Length];
             if (document.File.Length > 0)
             {
                 using (var stream = new MemoryStream())
@@ -95,7 +94,7 @@ namespace Silencershop.ServiceLayer.Services
             catch (DbUpdateException ex)
             {
                 return new OkObjectResult("Document Save Failed: " + ex.Message);
-            }
-        }
+            } */
+        } 
     }
 }

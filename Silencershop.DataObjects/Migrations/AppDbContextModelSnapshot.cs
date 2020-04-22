@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using SilencershopTest.DataAccess;
+using Silencershop.DataObjects.DataAccess;
 
-namespace SilencershopTest.Migrations
+namespace Silencershop.DataObjects.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     partial class AppDbContextModelSnapshot : ModelSnapshot
@@ -19,7 +19,7 @@ namespace SilencershopTest.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("SilencershopTest.Models.Audit", b =>
+            modelBuilder.Entity("Silencershop.DataObjects.Models.Audit", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -64,7 +64,7 @@ namespace SilencershopTest.Migrations
                     b.ToTable("Audits");
                 });
 
-            modelBuilder.Entity("SilencershopTest.Models.AuditStatus", b =>
+            modelBuilder.Entity("Silencershop.DataObjects.Models.AuditStatus", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -96,7 +96,7 @@ namespace SilencershopTest.Migrations
                         });
                 });
 
-            modelBuilder.Entity("SilencershopTest.Models.Auditor", b =>
+            modelBuilder.Entity("Silencershop.DataObjects.Models.Auditor", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -118,7 +118,7 @@ namespace SilencershopTest.Migrations
                     b.ToTable("Auditors");
                 });
 
-            modelBuilder.Entity("SilencershopTest.Models.Document", b =>
+            modelBuilder.Entity("Silencershop.DataObjects.Models.Document", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -150,7 +150,7 @@ namespace SilencershopTest.Migrations
                     b.ToTable("Documents");
                 });
 
-            modelBuilder.Entity("SilencershopTest.Models.Notification", b =>
+            modelBuilder.Entity("Silencershop.DataObjects.Models.Notification", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -183,7 +183,7 @@ namespace SilencershopTest.Migrations
                     b.ToTable("Notifications");
                 });
 
-            modelBuilder.Entity("SilencershopTest.Models.NotificationEventType", b =>
+            modelBuilder.Entity("Silencershop.DataObjects.Models.NotificationEventType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -215,7 +215,7 @@ namespace SilencershopTest.Migrations
                         });
                 });
 
-            modelBuilder.Entity("SilencershopTest.Models.User", b =>
+            modelBuilder.Entity("Silencershop.DataObjects.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -282,7 +282,7 @@ namespace SilencershopTest.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("SilencershopTest.Models.UserLoginHistory", b =>
+            modelBuilder.Entity("Silencershop.DataObjects.Models.UserLoginHistory", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -305,7 +305,7 @@ namespace SilencershopTest.Migrations
                     b.ToTable("UserLoginHistories");
                 });
 
-            modelBuilder.Entity("SilencershopTest.Models.UserRole", b =>
+            modelBuilder.Entity("Silencershop.DataObjects.Models.UserRole", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -342,7 +342,7 @@ namespace SilencershopTest.Migrations
                         });
                 });
 
-            modelBuilder.Entity("SilencershopTest.Models.UserStatus", b =>
+            modelBuilder.Entity("Silencershop.DataObjects.Models.UserStatus", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -369,70 +369,70 @@ namespace SilencershopTest.Migrations
                         });
                 });
 
-            modelBuilder.Entity("SilencershopTest.Models.Audit", b =>
+            modelBuilder.Entity("Silencershop.DataObjects.Models.Audit", b =>
                 {
-                    b.HasOne("SilencershopTest.Models.AuditStatus", "AuditStatus")
+                    b.HasOne("Silencershop.DataObjects.Models.AuditStatus", "AuditStatus")
                         .WithMany()
                         .HasForeignKey("AuditStatusId");
 
-                    b.HasOne("SilencershopTest.Models.User", "FFLAdmin")
+                    b.HasOne("Silencershop.DataObjects.Models.User", "FFLAdmin")
                         .WithMany()
                         .HasForeignKey("FFLAdminId");
 
-                    b.HasOne("SilencershopTest.Models.User", "IOIAdmin")
+                    b.HasOne("Silencershop.DataObjects.Models.User", "IOIAdmin")
                         .WithMany()
                         .HasForeignKey("IOIAdminId");
                 });
 
-            modelBuilder.Entity("SilencershopTest.Models.Auditor", b =>
+            modelBuilder.Entity("Silencershop.DataObjects.Models.Auditor", b =>
                 {
-                    b.HasOne("SilencershopTest.Models.Audit", "Audit")
+                    b.HasOne("Silencershop.DataObjects.Models.Audit", "Audit")
                         .WithMany()
                         .HasForeignKey("AuditId");
 
-                    b.HasOne("SilencershopTest.Models.User", "IOIUser")
+                    b.HasOne("Silencershop.DataObjects.Models.User", "IOIUser")
                         .WithMany()
                         .HasForeignKey("IOIUserId");
                 });
 
-            modelBuilder.Entity("SilencershopTest.Models.Document", b =>
+            modelBuilder.Entity("Silencershop.DataObjects.Models.Document", b =>
                 {
-                    b.HasOne("SilencershopTest.Models.User", "UploadedBy")
+                    b.HasOne("Silencershop.DataObjects.Models.User", "UploadedBy")
                         .WithMany("Documents")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("SilencershopTest.Models.Notification", b =>
+            modelBuilder.Entity("Silencershop.DataObjects.Models.Notification", b =>
                 {
-                    b.HasOne("SilencershopTest.Models.Document", "Document")
+                    b.HasOne("Silencershop.DataObjects.Models.Document", "Document")
                         .WithMany()
                         .HasForeignKey("DocumentId");
 
-                    b.HasOne("SilencershopTest.Models.NotificationEventType", "NotificationEventType")
+                    b.HasOne("Silencershop.DataObjects.Models.NotificationEventType", "NotificationEventType")
                         .WithMany()
                         .HasForeignKey("NotificationEventTypeId");
 
-                    b.HasOne("SilencershopTest.Models.User", "User")
+                    b.HasOne("Silencershop.DataObjects.Models.User", "User")
                         .WithMany("Notifications")
                         .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("SilencershopTest.Models.User", b =>
+            modelBuilder.Entity("Silencershop.DataObjects.Models.User", b =>
                 {
-                    b.HasOne("SilencershopTest.Models.UserRole", "UserRole")
+                    b.HasOne("Silencershop.DataObjects.Models.UserRole", "UserRole")
                         .WithMany()
                         .HasForeignKey("UserRoleId");
 
-                    b.HasOne("SilencershopTest.Models.UserStatus", "UserStatus")
+                    b.HasOne("Silencershop.DataObjects.Models.UserStatus", "UserStatus")
                         .WithMany()
                         .HasForeignKey("UserStatusId");
                 });
 
-            modelBuilder.Entity("SilencershopTest.Models.UserLoginHistory", b =>
+            modelBuilder.Entity("Silencershop.DataObjects.Models.UserLoginHistory", b =>
                 {
-                    b.HasOne("SilencershopTest.Models.User", "User")
+                    b.HasOne("Silencershop.DataObjects.Models.User", "User")
                         .WithMany("LoginHistory")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

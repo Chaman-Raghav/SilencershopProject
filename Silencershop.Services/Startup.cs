@@ -11,12 +11,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using SilencershopTest.DataAccess;
+using Silencershop.DataObjects.DataAccess;
 using Microsoft.OpenApi.Models;
 using Silencershop.ServiceLayer.Services;
 using Silencershop.ServiceLayer.Services.IServices;
 
-namespace SilencershopTest
+namespace Silencershop.ServiceLayer
 {
     public class Startup
     {

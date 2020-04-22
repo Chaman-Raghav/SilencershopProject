@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SilencershopTest.Models;
+using Silencershop.DataObjects.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-namespace SilencershopTest.DataAccess
+namespace Silencershop.DataObjects.DataAccess
 {
     public class AppDbContext : DbContext
     {
@@ -19,6 +19,15 @@ namespace SilencershopTest.DataAccess
         public DbSet<AuditStatus> AuditStatuses { get; set; }
         public DbSet<Audit> Audits { get; set; }
         public DbSet<Auditor> Auditors { get; set; }
+       /* public DbSet<DocumentStatus> DocumentStatuses { get; set; }
+        public DbSet<Note> Notes { get; set; }
+        public DbSet<FlaggedDocument> FlaggedDocuments { get; set; }
+        public DbSet<AssignedUser> AssignedUsers { get; set; }
+        public DbSet<SerialNumber> SerialNumbers { get; set; }
+        public DbSet<FileType> FileTypes { get; set; }
+        public DbSet<File> Files { get; set; }
+        public DbSet<GlobalCorrectionLog> GlobalCorrectionLogs { get; set; }
+        public DbSet<DocumentHistory> DocumentHistories { get; set; } */
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<UserRole>().HasData(

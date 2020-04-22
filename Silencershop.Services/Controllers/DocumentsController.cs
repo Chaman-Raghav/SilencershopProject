@@ -1,10 +1,10 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Silencershop.DataObjects.Models;
+using Silencershop.ServiceLayer.Interfaces;
 using Silencershop.ServiceLayer.Services.IServices;
-using SilencershopTest.Interfaces;
-using SilencershopTest.Models;
 
-namespace SilencershopTest.Controllers
+namespace Silencershop.ServiceLayer.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -29,8 +29,9 @@ namespace SilencershopTest.Controllers
         [HttpGet("GetDocumentById/{documentId:int}")]
         public IActionResult GetDocumentById(int documentId)
         {
-           var document = _documentsService.GetDocumentById(documentId);
-            return File(document.File, document.ContentType, document.FileName);
+            //var document = _documentsService.GetDocumentById(documentId);
+            //return File(document.File, document.ContentType, document.FileName);
+            return Ok();
         }
 
         [HttpGet]
